@@ -1,17 +1,154 @@
 // Imports
-
+@import "partials/_clearfix";
+@import "partials/_general_styles";
+@import "partials/_reset";
 
 
 // 1. Many small items in a grid
+.small-grid-flexbox{
+  ul{
+    margin: auto;
+    display: flex;
+    flex-flow: row wrap;
 
+    @include respond-to('medium'){
+      width: 400px;
+    }
+
+    li{
+      text-align: center;
+      box-sizing: border-box;
+      line-height: 40px;
+      flex: 0 0 10%;
+
+      @include respond-to('medium'){
+        flex: 0 0 40px;
+      }
+    }
+  }
+}
 
 
 // 2. 2-Column Grid
+.two-col-grid-flexbox{
+  display: flex;
+  flex-flow: row wrap;
 
+  .column-1{
+    flex: 0 0 100%;
+    box-sizing: border-box;
+
+    @include respond-to('medium'){
+      order: 2;
+      flex: 0 0 50%;
+      align-self: flex-start;
+    }
+  }
+
+  .column-2{
+    flex: 0 0 100%;
+    box-sizing: border-box;
+
+    @include respond-to('medium'){
+      order: 1;
+      flex: 0 0 50%;
+    }
+  }
+}
 
 
 // 3. Centering
 
+.centering-formula-1{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+
+  .centered{
+  }
+}
+
+.centering-formula-2{
+  display: flex;
+  flex-flow: row nowrap;
+  .centered{
+    margin: auto;
+  }
+}
 
 
 // 4. Ordering
+
+.ordering-block{
+  display: flex;
+  flex-flow: row wrap;
+
+  @include respond-to('large'){
+    justify-content: space-between;
+  }
+
+  .item-a{
+    order: 3;
+    flex: 0 0 100%;
+    box-sizing: border-box;
+
+    @include respond-to('medium'){
+      order: 1;
+      flex: 1 0 10%;
+    }
+
+    @include respond-to('large'){
+      order: 4;
+      flex: 0 0 5%;
+    }
+  }
+
+  .item-b{
+    order: 2;
+    flex: 0 0 100%;
+    box-sizing: border-box;
+
+    @include respond-to('medium'){
+      order: 2;
+      flex: 1 0 20%;
+    }
+
+    @include respond-to('large'){
+      order: 3;
+      flex: 0 0 10%;
+    }
+  }
+
+  .item-c{
+    order: 1;
+    flex: 0 0 100%;
+    box-sizing: border-box;
+
+    @include respond-to('medium'){
+      order: 3;
+      flex: 1 0 30%;
+    }
+
+    @include respond-to('large'){
+      order: 2;
+      flex: 0 0 20%;
+    }
+  }
+
+  .item-d{
+    order: 4;
+    flex: 0 0 100%;
+    box-sizing: border-box;
+
+    @include respond-to('medium'){
+      order: 4;
+      flex: 1 0 40%;
+    }
+
+    @include respond-to('large'){
+      order: 1;
+      flex: 0 0 30%;
+    }
+  }
+}
